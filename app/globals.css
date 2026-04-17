@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg: #FAFAF7;
+  --color-bg-elevated: #FFFFFF;
+  --color-fg: #0A0A0A;
+  --color-fg-muted: #5B5B58;
+  --color-fg-subtle: #8A8A85;
+  --color-border: #E7E5E0;
+  --color-border-strong: #D6D3CC;
+  --color-accent: #00D16C;
+  --color-accent-text: #0B8A4A;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-ring: #0A0A0A;
+
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --radius-sm: 6px;
+  --radius-DEFAULT: 10px;
+  --radius-lg: 14px;
+
+  --ease-brand: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dark {
+  --color-bg: #0B0E13;
+  --color-bg-elevated: #11151C;
+  --color-fg: #FAFAF7;
+  --color-fg-muted: #A8A8A3;
+  --color-fg-subtle: #6E6E69;
+  --color-border: #1F2228;
+  --color-border-strong: #2C3038;
+  --color-accent: #00D16C;
+  --color-accent-text: #3AE88A;
+  --color-ring: #FAFAF7;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+}
+
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--color-fg);
+  color: var(--color-bg);
 }
