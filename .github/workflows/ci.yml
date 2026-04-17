@@ -12,8 +12,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm install --no-audit --no-fund --prefer-offline
+      - name: Install dependencies (fresh resolve per platform)
+        run: |
+          rm -f package-lock.json
+          npm install --no-audit --no-fund
       - run: npx tsc --noEmit
       - run: npm run lint
       - run: npm test
