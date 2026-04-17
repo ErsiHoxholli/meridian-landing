@@ -17,6 +17,14 @@
   --color-danger: #EF4444;
   --color-ring: #0A0A0A;
 
+  /* shadcn-compatibility aliases mapped to Meridian tokens */
+  --color-input: var(--color-border);
+  --color-muted-foreground: var(--color-fg-muted);
+  --color-foreground: var(--color-fg);
+  --color-primary: var(--color-fg);
+  --color-primary-foreground: var(--color-bg);
+  --color-destructive: var(--color-danger);
+
   --font-serif: var(--font-serif), Georgia, serif;
   --font-sans: var(--font-sans), system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
@@ -26,6 +34,18 @@
   --radius-lg: 14px;
 
   --ease-brand: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --animate-accordion-down: accordion-down 0.2s var(--ease-brand);
+  --animate-accordion-up: accordion-up 0.2s var(--ease-brand);
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
 }
 
 .dark {
