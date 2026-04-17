@@ -19,6 +19,8 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run size
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
       - name: Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.14.x
