@@ -105,7 +105,7 @@ npm install -D tailwindcss@next @tailwindcss/postcss@next
 npm run dev
 ```
 
-Open `http://localhost:3000` — default Next welcome page should render. Ctrl+C to stop.
+Open `http://localhost:3100` — default Next welcome page should render. Ctrl+C to stop.
 
 - [ ] **Step 4: Commit**
 
@@ -650,7 +650,7 @@ body {
 npm run dev
 ```
 
-Visit `http://localhost:3000`. Page body should be ivory `#FAFAF7`, text ink `#0A0A0A`. Ctrl+C.
+Visit `http://localhost:3100`. Page body should be ivory `#FAFAF7`, text ink `#0A0A0A`. Ctrl+C.
 
 - [ ] **Step 4: Commit**
 
@@ -2416,7 +2416,7 @@ EOF
   "ci": {
     "collect": {
       "startServerCommand": "npm start",
-      "url": ["http://localhost:3000/"],
+      "url": ["http://localhost:3100/"],
       "numberOfRuns": 3
     },
     "assert": {
@@ -2532,10 +2532,10 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "tests/e2e",
-  use: { baseURL: "http://localhost:3000" },
+  use: { baseURL: "http://localhost:3100" },
   webServer: {
     command: "npm run build && npm start",
-    url: "http://localhost:3000",
+    url: "http://localhost:3100",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
@@ -2628,7 +2628,7 @@ npm run build && npm start
 
 - [ ] **Step 2: Desktop check (1440px wide)**
 
-Open `http://localhost:3000/` in Chrome. Verify:
+Open `http://localhost:3100/` in Chrome. Verify:
 - Hero copy + preview card side-by-side
 - Preview balance tickers every ~4 s
 - Sparkline draws in, then shifts left on each tick
@@ -2700,7 +2700,7 @@ Next.js 15 · TypeScript · Tailwind v4 · shadcn/ui · next/font · next-themes
 ```bash
 npm install
 npm run dev
-# visit http://localhost:3000
+# visit http://localhost:3100
 ```
 
 ## Scripts
