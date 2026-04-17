@@ -1,0 +1,14 @@
+[
+  {
+    "name": "First-Load JS (/)",
+    "path": ".next/server/app/page.js",
+    "limit": "95 KB",
+    "gzip": true
+  },
+  {
+    "name": "CSS",
+    "path": ".next/static/css/*.css",
+    "limit": "20 KB",
+    "gzip": true
+  }
+]
