@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -37,7 +38,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable}`} suppressHydrationWarning>
-      <body className="bg-bg text-fg antialiased">{children}</body>
+      <body className="bg-bg text-fg antialiased">
+        <ThemeProvider>
+          <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-fg focus:px-3 focus:py-2 focus:text-bg">
+            Skip to content
+          </a>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
